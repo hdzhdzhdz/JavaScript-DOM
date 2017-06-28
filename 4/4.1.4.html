@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4.1.4</title>
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+    <style>
+        #content{
+            border: 1px solid #000;
+            width: 120px;
+            height: 60px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        外层div元素<br>
+        <span>内层span元素</span><br>
+        外层div元素
+    </div>
+    <form action="">
+        用户名：<input type="text" id="username">
+        <input type="submit" value="提交" id="sub">
+    </form>
+    <div id="msg"></div>
+    <script>
+//        $(function(){
+//            //为span元素绑定click元素
+//            $('span').click(function(event){
+//               var txt = $('#msg').html()+"<p>内层span元素被点击</p>" ;
+//                $('#msg').html(txt);
+//             event.stopPropagation();           //停止事件冒泡   
+//            });
+//        })
+//        $(function(){
+//            //为div元素绑定click元素
+//            $('#content').click(function(event){
+//               var txt = $('#msg').html()+"<p>外层div元素被点击</p>" ;
+//                $('#msg').html(txt);
+//                event.stopPropagation();           //停止事件冒泡  
+//            });
+//        })
+//        $(function(){
+//            //为body绑定click元素
+//            $('body').click(function(event){
+//               var txt = $('#msg').html()+"<p>body元素被点击</p>" ;
+//                $('#msg').html(txt);
+//                event.stopPropagation();           //停止事件冒泡  
+//            });
+//        })
+        $("#sub").click(function(){
+            var username = $("#username").val();            //获取元素的值
+            if(username==""){                               //判断值是否为空
+                $("#msg").html("<p>文本框的值不能为空</p>");   //提示信息
+                event.preventDefault();                     //组织默认行为（表单提交）
+            }
+        })
+    </script>
+</body>
+</html>

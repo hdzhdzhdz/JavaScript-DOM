@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.2.10</title>
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <input type="text" id="address" value="请输入邮箱地址">
+    <input type="text" id="password" value="请输入邮箱密码">
+    <input type="button" value="登录">
+    <br />
+    <select id="single">
+        <option>选择1号</option>
+        <option>选择2号</option>
+        <option>选择3号</option>
+    </select>
+    <select id="multiple" multiple="multiple" style="height:120px">
+        <option selected="selected">选择1号</option>
+        <option>选择2号</option>
+        <option>选择3号</option>
+        <option>选择4号</option>
+        <option selected="selected">选择5号</option>
+    </select>
+    <br>
+    <input type="checkbox" value="check1">多选1
+    <input type="checkbox" value="check2">多选2
+    <input type="checkbox" value="check3">多选3
+    <input type="checkbox" value="check4">多选4
+    <input type="radio" value="radio1">单选1
+    <input type="radio" value="radio2">单选2
+    <input type="radio" value="radio3">单选3
+    <script>
+        //对地址框进行操作
+        $("#address").focus(function(){                 //地址框获得鼠标焦点
+            var txt_value = $(this).val();              //得到当前文本框的值
+            if(txt_value == "请输入邮箱地址"){
+                $(this).val("");                        //如果符合条件，则设置内容
+            }
+        });
+        $("#address").blur(function(){                  //地址框失去鼠标焦点
+            var txt_value = $(this).val();              //得到当前文本框的值
+            if(txt_value == ""){
+                $(this).val("请输入邮箱地址");            //如果符合条件，则设置内容
+            }
+        });
+        //对密码框进行操作
+        $("#password").focus(function(){
+            var txt_value = $(this).val();           
+            if(txt_value == this.defaultValue){
+                $(this).val("");
+            }
+        });
+        $("#password").blur(function(){
+            var txt_value = $(this).val();           
+            if(txt_value == ""){
+                $(this).val(this.defaultValue);
+            }
+        });  
+        
+        $("#single").val("选择2号");
+        $("#multiple").val(["选择2号","选择3号"]);         //以数组的形式赋值
+        $(":checkbox").val(["check2","check3"]);
+        $(":radio").val(["radio2"]);
+    </script>
+</body>
+</html>

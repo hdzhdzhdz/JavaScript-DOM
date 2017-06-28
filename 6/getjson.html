@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>getjson</title>
+    <link rel="stylesheet" href="../css/neat.min.css">
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <input type="button" value="加载" id="send">
+    <div  class="comment">已有评论：</div>
+    <div id="resText" ></div>
+    <script>
+        $(function(){
+            $('#send').click(function(){
+                $.getJSON('test.json', function(data){
+                    $('#resText').empty()
+                    var html = ' '
+                    $.each(data , function(commentIndex, comment){
+                        html += "<div class = 'comment'><h6>"
+                            + comment['username'] + ":</h6><p class='para'>"
+                            + comment['content'] + '</p></div>'
+                    })
+                    $('#resText').html(html);
+                                
+                })
+            })
+        })
+    </script>
+</body>
+</html>

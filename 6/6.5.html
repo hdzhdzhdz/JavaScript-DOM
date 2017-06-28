@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>6.5</title>
+    <link rel="stylesheet" href="../css/neat.min.css">
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <input type="button" id="send" value="Ajax获取">
+    <div class="comment">已有评论</div>
+    <div id="resText"></div>
+    <script>
+        $(function(){
+            $("#send").click(function(){
+//                $("#resText").load("test.html");
+                $("#resText").load("test.html .para");
+            });
+        });
+    </script>
+</body>
+</html>

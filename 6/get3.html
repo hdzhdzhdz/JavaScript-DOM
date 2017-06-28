@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>get3</title>
+    <link rel="stylesheet" href="../css/neat.min.css">
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <form id="form1" action="#">
+        <p>评论：</p>
+        <p>姓名：<input type="text" name="username" id="username"></p>
+        <p>内容：<textarea name="content" id="content" cols="20" rows="2"></textarea></p>
+        <p><input type="button" id="send" value="提交"></p>
+    </form>
+    <div class="comment">已有评论：</div>
+    <div id="resText"></div>
+    <script>
+        $(function(){
+            $('#send').click(function(){
+                $.get('get3.php', {
+                    username: $('#username').val(), 
+                    content: $('#content').val()
+                }, function(data, textStatus){
+                    var username = data.username
+                    var content = data.content
+                    var txtHtml = "<div class='comment'><h6>"
+                               +username+"</h6><p class='para'>"
+                               +content+"</p></div>"
+                    $('#resText').html(txtHtml) //将返回的数据添加到页面上
+                },'json')
+            })
+        })
+    </script>
+</body>
+</html>

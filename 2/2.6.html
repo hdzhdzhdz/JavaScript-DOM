@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.6</title>
+    <link rel="stylesheet" href="./style/style2.css">
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <div class="SubCategoryBox">
+        <ul>
+            <li><a href="#">佳能<i>（30440）</i></a></li>
+            <li><a href="#">索尼<i>（27220）</i></a></li>
+            <li><a href="#">三星<i>（20808）</i></a></li>
+            <li><a href="#">尼康<i>（17821）</i></a></li>
+            <li><a href="#">松下<i>（12289）</i></a></li>
+            <li><a href="#">卡西欧<i>（8242）</i></a></li>
+            <li><a href="#">富士<i>（14894）</i></a></li>
+            <li><a href="#">柯达<i>（9520）</i></a></li>
+            <li><a href="#">宾得<i>（2195）</i></a></li>
+            <li><a href="#">理光<i>（4114）</i></a></li>
+            <li><a href="#">奥林巴斯<i>（12205）</i></a></li>
+            <li><a href="#">明基<i>（1466）</i></a></li>
+            <li><a href="#">爱国者<i>（3091）</i></a></li>
+            <li><a href="#">其他品牌相机<i>（7275）</i></a></li>
+        </ul>
+        <div class="showmore">
+            <a href="#"><span>显示全部品牌</span></a>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            var $category = $("ul li:gt(5):not(:last)");
+            $category.hide();
+            var $toggleBtn = $('div.showmore > a');
+            $toggleBtn.click(function(){
+                if($category.is(":visible")){
+                    $category.hide();
+                    $(this).find('span').text("显示全部品牌");
+                    $("ul li").removeClass("promoted");
+                }else{
+                    $category.show();
+                    $(this).find('span').text("精简显示品牌");
+                    $('ul li').filter(":contains('佳能'),:contains('尼康'),:contains('奥林巴斯')").addClass("promoted");
+                }
+            })
+            
+        })
+//        $(function(){                                     toggle()方法已被淘汰
+//            var $category = $("ul li:gt(5):not(:last)");
+//            $category.hide();
+//            var $toggleBtn = $('div.showmore > a');
+//            $toggleBtn.toggle(
+//                function(){
+//                    $category.show();
+//                   $(this).find('span').text("精简显示品牌");
+//                    $('ul li').filter(":contains('佳能'),:contains('尼康'),:contains('奥林巴斯')").addClass("promoted");
+//                },function(){
+//                    $category.hide();
+//                    $(this).find('span').text("显示全部品牌");
+//                    $("ul li").removeClass("promoted");
+//            })  
+//        })
+    </script>
+</body>
+</html>

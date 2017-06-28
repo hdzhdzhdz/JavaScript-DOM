@@ -1,0 +1,7 @@
+.selected{
+    background-color: orange;
+    color: #fff;
+}
+#div_side_0,#div_side_1{
+    background-color: orange;
+}

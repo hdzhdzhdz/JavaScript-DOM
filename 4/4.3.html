@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4.3</title>
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+    <style>
+        a{
+            text-decoration: none;
+            color:#000;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+            display: inline-block;
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+        .cartoon,.highlight_tip,.change_btn{
+            display: inline-block;
+        }
+        .highlight_tip,.change_btn{
+            margin-left: 50px;
+        }
+        .more{
+            position: relative;
+            left:60%;
+        }
+        .v_content{
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+        .v_content_list{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="v_show">
+        <div class="v_caption">
+            <h2 class="cartoon" title="卡通动漫">卡通动漫</h2>
+            <div class="highlight_tip">
+                <span class="current">1</span><span>2</span><span>3</span><span>4</span>
+            </div>
+            <div class="change_btn">
+                <span class="prev">上一页</span>
+                <span class="next">下一页</span>
+            </div>
+            <em class="more"><a href="#">更多>></a></em>
+        </div>
+        <div class="v_content">
+            <div class="v_content_list">
+                <ul>
+                    <li><a href="#"><img src="image/1.jpg" alt="卡通动漫"></a><h4><a href="#">卡通动漫</a></h4><span>播放<em>28，276</em></span></li>
+                    <li><a href="#"><img src="image/1.jpg" alt="卡通动漫"></a><h4><a href="#">卡通动漫</a></h4><span>播放<em>28，276</em></span></li>
+                    <li><a href="#"><img src="image/1.jpg" alt="卡通动漫"></a><h4><a href="#">卡通动漫</a></h4><span>播放<em>28，276</em></span></li>
+                    <li><a href="#"><img src="image/1.jpg" alt="卡通动漫"></a><h4><a href="#">卡通动漫</a></h4><span>播放<em>28，276</em></span></li>
+                    <li><a href="#"><img src="image/1.jpg" alt="卡通动漫"></a><h4><a href="#">卡通动漫</a></h4><span>播放<em>28，276</em></span></li>
+                    <li><a href="#"><img src="image/1.jpg" alt="卡通动漫"></a><h4><a href="#">卡通动漫</a></h4><span>播放<em>28，276</em></span></li>
+                    <li><a href="#"><img src="image/1.jpg" alt="卡通动漫"></a><h4><a href="#">卡通动漫</a></h4><span>播放<em>28，276</em></span></li>
+                    <li><a href="#"><img src="image/1.jpg" alt="卡通动漫"></a><h4><a href="#">卡通动漫</a></h4><span>播放<em>28，276</em></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            var page = 1;
+            var i = 4;
+            $("span.next").click(function(){
+                var $parent = $(this).parents("div.v_show");
+                var $v_show = $parent.find("div.v_content_list");
+                var $v_content = $parent.find("div.v_content");
+                var v_width = $v_content.width();
+                var len = $v_show.find("li").length;
+                var page_count = Math.ceil(len/i);
+                if(!$v_show.is(":animated")){
+                    if(page == page_count){
+                        $v_show.animate({left:"0px"},"slow");
+                        page=1;
+                    }else{
+                        $v_show.animate({left:"-="+v_width},"slow");
+                        page++;
+                    }
+                    $parent.find("span").eq((page-1)).addClass("current")
+                        .siblings().removeClass("current");
+                }
+            });
+            $("span.prev").click(function(){
+                var $parent = $(this).parents("div.v_show");
+                var $v_show = $parent.find("div.v_content_list");
+                var $v_content = $parent.find("div.v_content");
+                var v_width = $v_content.width();
+                var len = $v_show.find("li").length;
+                var page_count = Math.ceil(len/i);
+                if(!$v_show.is(":animated")){
+                    if(page == 1){
+                        $v_show.animate({left:"-="+v_width*(page_count-1)},"slow");
+                        page=page_count;
+                    }else{
+                        $v_show.animate({left:"+="+v_width},"slow");
+                        page--;
+                    }
+                    $parent.find("span").eq((page-1)).addClass("current")
+                        .siblings().removeClass("current");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

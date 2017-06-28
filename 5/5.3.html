@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>5.3</title>
+    <link rel="stylesheet" href="../css/neat.min.css">
+    <link rel="stylesheet" href="css/skin_0.css" id="cssfile">
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+    <script src="../scripts/jquery.cookie.js"></script>
+    <style>
+        .msg{
+            margin: 50px;  
+            padding: 10px;
+            border: 1px solid #555;
+            width: 257px;
+        }
+        .bigger,.smaller{
+            padding: 5px;
+            background-color: gray;
+            color: #fff;
+            cursor: pointer;
+        }
+        .tab{
+            width: 300px;
+            height: 200px;
+            border: 1px solid #555;
+            padding: 10px;
+        }
+        .tab_menu ul li{
+            display: inline-block;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin-top: 10px;
+            border: 1px solid #555;
+        }
+        .tab_box{
+            border: 1px solid #555;
+            height: 150px
+        }
+        .tab_box div{
+            display: inline-block;
+        }
+        .tab_box div.hide{
+            display: none;
+        }
+/*
+        .selected{
+            background-color: gray;
+        }
+*/
+        #skin li{
+            display: inline-block;
+            cursor: pointer;
+            padding: 5px;
+        }
+        #div_side_0,#div_side_1{
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px;
+            margin-top: 10px;
+        }
+        #div_side_0 h1,#div_side_1 h1{
+            font-size: 24px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<!--
+    <div class="msg">
+        <div class="msg_caption">
+            <span class="bigger">放大</span>
+            <span class="smaller">缩小</span>
+        </div>
+        <div>
+            <p id="para">
+                This is some text.This is some text. This is some text.This is some text. This is some text.This is some text. This is some text.This is some text. This is some text.This is some text. This is some text.This is some text. This is some text.This is some text. This is some text.This is some text. This is some text.This is some text. This is some text.This is some text. This is some text.This is some text.
+            </p>
+        </div>
+    </div>
+-->
+<!--
+    <div class="tab">
+        <div class="tab_menu">
+            <ul>
+                <li class="selected">时事</li>
+                <li>体育</li>
+                <li>娱乐</li>
+            </ul>
+        </div>
+        <div class="tab_box">
+            <div>时事</div>
+            <div class="hide">体育</div>
+            <div class="hide">娱乐</div>
+        </div>
+    </div>
+-->
+   <ul id="skin">
+       <li id="skin_0" title="灰色" class="selected">灰色</li>
+       <li id="skin_1" title="紫色">紫色</li>
+       <li id="skin_2" title="红色">红色</li>
+       <li id="skin_3" title="天蓝色">天蓝色</li>
+       <li id="skin_4" title="橙色">橙色</li>
+       <li id="skin_5" title="淡绿色">淡绿色</li>
+   </ul>
+   <div id="div_side_0">
+       <div id="news">
+           <h1 class="title">时事新闻</h1>
+       </div>
+   </div>
+   <div id="div_side_1">
+       <div id="game">
+           <h1 class="title">娱乐新闻</h1>
+       </div>
+   </div>
+    <script>
+        $(function(){
+//            //5.3.1
+//            $("span").click(function(){
+//                var thisEle = $("#para").css("font-size");
+//                var textFontSize = parseInt(thisEle,10);
+//                var unit = thisEle.slice(-2);
+//                var cName = $(this).attr("class");
+//                if(cName == "bigger"){
+//                    if(textFontSize<=22){
+//                        textFontSize+=2;
+//                    }
+//                }else if(cName == "smaller"){
+//                    if(textFontSize>=12){
+//                        textFontSize-=2;
+//                    }
+//                }
+//                $("#para").css("font-size",textFontSize+unit);
+//            });
+            
+//            //5.3.2
+//            var $div_li = $("div.tab_menu ul li");
+//            $div_li.click(function(){
+//               $(this).addClass("selected")                 //当前<li>元素高亮
+//                .siblings().removeClass("selected");        //去掉其他同辈<li>元素
+//                var index = $div_li.index(this);            //获取当前点击的<li>元素在全部<li>元素中的索引
+//                $("div.tab_box>div")                        //选取子节点
+//                .eq(index).show()                           //显示<li>元素对应的div元素
+//                .siblings().hide();                         //隐藏其他几个同辈的div元素
+//            }).hover(function(){                            //添加光标滑过效果
+//                $(this).addClass("hover");
+//            },function(){
+//                $(this).removeClass("hover");
+//            });
+            //5.3.3
+            function switchSkin(skinName){
+                $("#"+skinName).addClass("selected")
+                .siblings().removeClass("selected");
+                $("#cssfile").attr("href","css/"+skinName+".css");
+                $.cookie("MyCssSkin",skinName,{path:'/',expires:10});
+            }
+            var $li = $("#skin li");
+            $li.click(function(){
+               switchSkin(this.id); 
+            });
+            var cookie_skin = $.cookie("MyCssSkin");
+            if(cookie_skin){
+                switchSkin(cookie_skin);
+            }
+        });
+    </script>
+</body>
+</html>

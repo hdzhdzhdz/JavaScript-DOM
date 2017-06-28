@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4.2</title>
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+    <style>
+        #panel{
+            width: 300px;
+            height: auto;
+            border: 1px solid #000;
+        }
+        .head{
+            margin: 0;
+            padding: 10px;
+            background-color: #bbb;
+        }
+        .content{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="panel">
+        <h5 class="head">新闻标题</h5>
+        <div class="content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</div>
+    </div>
+    <script>
+        $(function(){
+            $(".head").click(function(){
+                if( $(".content").css("display")=="block"){
+//                    $(".content").hide(600);
+//                    $(".content").fadeOut();
+                    $(".content").slideUp();
+                }else{
+//                    $(".content").show(600);
+//                    $(".content").fadeIn();
+                    $(".content").slideDown();
+                }
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.3</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <script type="text/javascript" src="../scripts/jquery-3.2.1.js"></script>
+</head>
+<body>
+    <div class="one" id="one">
+        id为one，class为one的div
+        <div class="mini">class为mini</div>
+    </div>
+    <div class="one" id="two" title="test">
+        id为two，class为one，title为test的div.
+        <div class="mini" title="other">class为mini，title为other</div>
+        <div class="mini" title="test">class为mini，title为test</div>
+    </div>
+    <div class="one">
+        <div class="mini">class为mini</div>
+        <div class="mini">class为mini</div>
+        <div class="mini">class为mini</div>
+        <div class="mini"></div>
+    </div>
+    <div class="one">
+        <div class="mini">class为mini</div>
+        <div class="mini">class为mini</div>
+        <div class="mini">class为mini</div>
+        <div class="mini" title="tesst">class为mini,title为tesst</div>
+    </div>
+    <div style="display:none;" class="one">
+        style的display为"none"的div
+    </div>
+    <div class="hide">class为"hide"的div</div>
+    <div>
+        包含input的type为"hidden"的div<input type="hidden" size="8"/> 
+    </div>
+    <span id="mover">正在执行动画的span元素.</span>
+    <script type="text/javascript">
+        //基本选择器
+//        $("#one").css("background","#bbffaa");
+//        $(".mini").css("background","#bbffaa");
+//        $("div").css("background","#bbffaa");
+//        $("*").css("background","#bbffaa");
+//        $("span,#two").css("background","#bbffaa");
+        //层次选择器        
+//        $("body div").css("background","#bbffaa");            //全部<div>
+//        $("body>div").css("background","#bbffaa");            //子<div>
+//        $(".one+div").css("background","#bbffaa");            //下一个同辈元素
+//        $("#two~div").css("background","#bbffaa");            //后面的同辈元素
+        //基本过滤选择器
+//        $("div:first").css("background","#bbffaa");   
+//        $("div:last").css("background","#bbffaa");      
+//        $("div:not(.one)").css("background","#bbffaa");
+//        $("div:even").css("background","#bbffaa");            //索引值为偶数的<div>
+//        $("div:odd").css("background","#bbffaa");             //索引值为奇数的<div>
+//        $("div:eq(3)").css("background","#bbffaa");           //索引值等于3的<div>
+//        $("div:gt(3)").css("background","#bbffaa");           //索引值大于3的<div>
+//        $("div:lt(3)").css("background","#bbffaa");           //索引值小于3的<div>
+//        $(":header").css("background","#bbffaa");             //所有的标题元素
+//        $("#mover").animate({left:'100px'});
+//        $(":animated").css("background","#bbffaa");           //当前正在执行动画的元素
+//        $(":focus").css("background","#bbffaa");              //当前获取焦点的元素
+        //内容过滤选择器        
+//        $("div:contains(di)").css("background","#bbffaa");    //含有文本“di”的<div>元素
+//        $("div:empty").css("background","#bbffaa");           //不包含子元素（包括文本元素）的<div>空元素
+//        $("div:has('.mini')").css("background","#bbffaa");    //含有class为mini元素的<div>元素
+//        $("div:parent").css("background","#bbffaa");          //含有子元素（包括文本元素的）的<div>元素
+        //可见性过滤选择器
+//        $("div:visible").css("background","#FF6500");         //所有可见的<div>元素
+//        $("div:hidden").show(3000);                           //显示隐藏的<div>元素       
+        //属性过滤选择器
+//        $("div[title]").css("background","#bbffaa");          //含有属性title的<div>元素
+//        $("div[title=test]").css("background","#bbffaa");     //属性title值等于“test”的<div>元素     
+//        $("div[title!=test]").css("background","#bbffaa");    //属性title值不等于“test”的<div>元素 
+//        $("div[title^=te]").css("background","#bbffaa");      //属性title值以“te”开始的<div>元素
+//        $("div[title$=est]").css("background","#bbffaa");     //属性title值以“est”结束的<div>元素
+//        $("div[title*=es]").css("background","#bbffaa");      //属性title值含有“es”的<div>元素
+//        $("div[id][title*=es]").css("background","#bbffaa");  //含有属性id,并且属性title值含有“es”的<div>元素
+        //子元素过滤选择器
+//       $("div.one :nth-child(2)").css("background","#bbffaa");//每个class为one的<div>父元素下的第2个子元素
+//       $("div.one :first-child").css("background","#bbffaa"); //每个class为one的<div>父元素下的第1个子元素 
+//       $("div.one :last-child").css("background","#bbffaa");  //每个class为one的<div>父元素下的最后一个子元素
+//       $("div.one :only-child").css("background","#bbffaa");  //class为one的<div>父元素下只有一子元素的子元素
+    </script>
+</body>
+</html>

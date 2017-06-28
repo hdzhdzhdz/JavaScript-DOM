@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4.1</title>
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+    <style>
+        .head{
+            width:300px;
+            background-color: #ccc;
+            border: 1px solid #000;
+            padding: 5px;
+            margin-bottom: 0px;
+        }
+        .content{
+            border: 1px solid #000;
+            border-top: none;
+            width: 300px;
+            padding: 5px;
+        }
+        .highlight{
+            background: #FF3300;
+        }
+    </style>
+</head>
+<body>
+   <div id="panel">
+       <h5 class="head">什么是jQuery?</h5>
+       <div class="content">
+           jQuery是继Prototype之后又一个优秀的JavaScript库，它是一个由John Resig创建于2006年1月的开源项目。jQuery凭借简洁的语法和跨平台的兼容性，极大地简化了JavaScript开发人员遍历HTML文档、操作DOM、处理事件、执行动画和开发Ajax。它独特而又优雅的代码风格改变了JavaScript程序员的设计思路和编写程序的方式。
+       </div>
+   </div>
+    <script>
+        //4.1.1
+//        function one(){
+//            alert("one");
+//        }
+//        function two(){
+//            alert("two");
+//        }
+//        $(function(){
+//            one();
+//        })
+//        $(function(){
+//            two();
+//        })
+//        
+        //4.1.2
+//        $(function(){
+////            $(".content").hide();
+//            $("#panel h5.head").bind("click",function(){
+//                if($(this).next().is(":visible")){          //如果“内容”显示
+//                    $(this).next().hide();
+//                }else{
+//                    $(this).next().show();
+//                }
+//            })
+//        })
+//        $(function(){
+//            $(".content").hide();
+//            $("#panel h5.head").mouseover(function(){
+//                $(this).next().show();          
+//            }).mouseout(function(){
+//                $(this).next().hide();
+//            })
+        
+        //4.1.3
+//        $(function(){
+//            $(".content").hide();
+//            $("#panel h5.head").hover(function(){
+//                $(this).next().slideDown("slow");          
+//            }).mouseout(function(){
+//                $(this).next().slideUp("slow");
+//            })
+//        })
+        var i = 1;
+        $(function(){
+            $(".content").hide();
+            $("#panel h5.head").click(function(){
+                if(i == 1){
+                    $(this).addClass("highlight");
+                    $(this).next().show();
+                    i = 0;
+                }else{  
+                    $(this).removeClass("highlight");
+                    $(this).next().hide();   
+                    i = 1;
+                }
+            })
+        })
+    </script>
+</body>
+</html>

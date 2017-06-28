@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>5.2</title>
+    <link rel="stylesheet" href="../css/neat.min.css">
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+    <style>
+        th,td{
+            width: 100px;
+        }
+        .even{
+            background-color: #FFF38F;            /*偶数行样式*/
+        }
+        .odd{
+            background-color: #FFFFEE;            /*奇数行样式*/
+        }
+        .selected{
+            background-color: #FFF38F;
+        }
+        #filterName{
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+   筛选<input type="text" id="filterName">
+    <table>
+        <thead>
+            <tr><th><b>姓名</b></th><th><b>性别</b></th><th><b>暂住地</b></th></tr>
+        </thead>
+        <tbody>
+<!--
+            <tr><td><input type="radio" checked="checked"></td><td>张山</td><td>男</td><td>浙江宁波</td></tr>
+            <tr><td><input type="radio"></td><td>李四</td><td>女</td><td>浙江杭州</td></tr>
+            <tr><td><input type="radio"></td><td>王五</td><td>男</td><td>湖南长沙</td></tr>
+            <tr><td><input type="radio"></td><td>赵六</td><td>男</td><td>浙江温州</td></tr>
+            <tr><td><input type="radio"></td><td>Rain</td><td>男</td><td>浙江杭州</td></tr>
+            <tr><td><input type="radio"></td><td>MAXMAN</td><td>女</td><td>浙江杭州</td></tr>
+-->
+<!--
+            <tr><td><input type="checkbox" checked="checked"></td><td>张山</td><td>男</td><td>浙江宁波</td></tr>
+            <tr><td><input type="checkbox"></td><td>李四</td><td>女</td><td>浙江杭州</td></tr>
+            <tr><td><input type="checkbox"></td><td>王五</td><td>男</td><td>湖南长沙</td></tr>
+            <tr><td><input type="checkbox"></td><td>赵六</td><td>男</td><td>浙江温州</td></tr>
+            <tr><td><input type="checkbox"></td><td>Rain</td><td>男</td><td>浙江杭州</td></tr>
+            <tr><td><input type="checkbox"></td><td>MAXMAN</td><td>女</td><td>浙江杭州</td></tr>
+-->
+            <tr class="parent" id="row_01"><td colspan="3">前台设计组</td></tr>
+            <tr class="child_row_01"><td>张山</td><td>男</td><td>浙江宁波</td></tr>
+            <tr class="child_row_01"><td>李四</td><td>女</td><td>浙江杭州</td></tr>
+            
+            <tr class="parent" id="row_02"><td colspan="3">前台开发组</td></tr>
+            <tr class="child_row_02"><td>王五</td><td>男</td><td>湖南长沙</td></tr>
+            <tr class="child_row_02"><td>赵六</td><td>男</td><td>浙江温州</td></tr>
+            
+            <tr class="parent" id="row_03"><td colspan="3">后台开发组</td></tr>
+            <tr class="child_row_03"><td>Rain</td><td>男</td><td>浙江杭州</td></tr>
+            <tr class="child_row_03"><td>MAXMAN</td><td>女</td><td>浙江杭州</td></tr>
+        </tbody>
+    </table>
+    <script>
+        $(function(){
+            //5.2.1
+//            $("tbody>tr:odd").addClass("odd");            //给奇数行添加样式
+//            $("tbody>tr:even").addClass("even");          //给偶数行添加样式
+//            $("tr:contains('王五')").addClass("selected");
+            
+//            $('tbody>tr').click(function(){
+//                $(this).addClass('selected')
+//                .siblings().removeClass('selected')
+//                .end()
+//                .find(':radio').attr('checked',true)
+//                .parent().parent().siblings().children().children().attr('checked',false);
+//            })
+//            $('tbody>tr:has(:checked)').addClass('selected');
+//            
+//            $('tbody>tr').click(function(){
+//               if($(this).hasClass('selected')){            //判断是否含有selected高亮样式            
+//                   $(this).removeClass('selected')
+//                   .find(':checkbox').attr('checked',false);
+//               } else{
+//                   $(this).addClass('selected')
+//                   .find(':checkbox').attr('checked',true);
+//               }
+//            });
+            
+//            $('tbody>tr').click(function(){
+//               //判断当前是否选中
+//                var hasSelected=$(this).hasClass('selected');
+//                //如果选中，则移出selected类，否则就加上selected类
+//                $(this)[hasSelected?"removeClass":"addClass"]('selected')
+//                //查找内部的checkbox，设置对应的属性
+//                .find(':checkbox').attr('checked',!hasSelected);
+//            });
+//            $('tbody>tr:has(:checked)').addClass('selected');
+            
+            //5.2.2
+//            $('tr.parent').click(function(){                //获取所谓的父行
+//               $(this).toggleClass("selected")              //添加/删除高亮
+//                .siblings('.child_'+this.id).toggle();      //隐藏/显示所谓的子行
+//            }).click();
+            
+            //5.2.3
+//            $("tr:contains('王五')").addClass('selected');    //选择器contains，能匹配包含指定文本的元素
+//            $('table tbody tr').hide().
+//                filter(":contains('李')").show();
+            
+            $("#filterName").keyup(function(){
+               $("table tbody tr").hide()
+                .filter(":contains('"+($(this).val())+"')").show();
+            }).keyup();
+        });
+    </script>
+</body>
+</html>

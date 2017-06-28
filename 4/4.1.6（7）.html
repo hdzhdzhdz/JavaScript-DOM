@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4.1.6(7)</title>
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <button id="btn">点击我</button>
+    <div id="test"></div>
+    <button id="delAll">删除所有事件</button><br>
+    <button id="delTwo">删除第二个事件</button>
+    <input type="text">
+    <script>
+        $(function(){
+//            $('#btn').bind("click",myFun1 = function(){
+//                $('#test').append("<p>我的绑定函数1</p>");
+//            }).bind("click",myFun2 = function(){
+//                $('#test').append("<p>我的绑定函数2</p>");
+//            }).bind("click",myFun3 = function(){
+//                $('#test').append("<p>我的绑定函数3</p>");
+//            })
+//            $('#delAll').click(function(){
+//                $("#btn").unbind("click");
+//            })
+//            $('#delTwo').click(function(){
+//                $("#btn").unbind("click",myFun2);//删除“绑定函数2”
+//            })   
+//            $("#btn").one("click",function(){
+//                $('#test').append("<p>我的绑定函数1</p>");
+//            }).one("click",function(){
+//                $('#test').append("<p>我的绑定函数2</p>");
+//            }).one("click",function(){
+//                $('#test').append("<p>我的绑定函数3</p>");
+//            });
+//        })
+            
+            //4.1.7
+//            $("#btn").bind("myClick",function(){
+//                $("#test").append("<p>我的绑定函数1</p>");
+//                $("#test").append("<p>我的绑定函数2</p>");
+//                $("#test").append("<p>我的绑定函数3</p>");
+//            })
+//            $("#btn").trigger("myClick");
+            
+            $("#btn").bind("myClick",function(event,message1,message2){     //传递数据
+                $("#test").append("<p>"+message1 + message2 +"</p>");
+            });
+            $("#btn").trigger("myClick",["我的自定义","事件"]);
+//            $("input").trigger("focus");
+            $("input").triggerHandler("focus");
+        })
+    </script>
+</body>
+</html>

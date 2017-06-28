@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <link rel="stylesheet" href="../css/neat.min.css">
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <input type="button" value="加载" id="send">
+    <div  class="comment">已有评论：</div>
+    <div id="resText" ></div>
+    <button id="go">运行</button>
+    <div class="block" style="width:100px;height:100px;background-color:#ddd"></div>
+    <script>
+        $(function(){
+            $('#send').click(function(){
+                $.ajax({
+                    type: 'GET', 
+                    url: 'test.js', 
+                    dataType: 'script'
+                })
+            })
+            $.ajax({
+                type: 'POST',
+                url: 'jquery.color.js', 
+                dataType: 'script',
+                success: function(){
+                    $('#go').click(function(){
+                    $('.block').animate({backgroundColor:'pink'}, 1000)
+                               .animate({backgroundColor:'blue'}, 1000)
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+</html>

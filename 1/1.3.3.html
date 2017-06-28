@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../scripts/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <div class="box">
+        <ul class="menu">
+            <li class="level1">
+                <a href="#" class="current">衬衫</a>
+                <ul class="level2">
+                    <li><a href="#">短袖衬衫</a></li>
+                    <li><a href="#">长袖衬衫</a></li>
+                    <li><a href="#">短袖T恤</a></li>
+                    <li><a href="#">长袖T恤</a></li>
+                </ul>
+            </li>
+            <li class="level1">
+                <a href="#" class="current">卫衣</a>
+                <ul class="level2">
+                    <li><a href="#">开襟卫衣</a></li>
+                    <li><a href="#">套头卫衣</a></li>
+                    <li><a href="#">运动卫衣</a></li>
+                    <li><a href="#">童装卫衣</a></li>
+                </ul>
+            </li>
+            <li class="level1">
+                <a href="#" class="current">裤子</a>
+                <ul class="level2">
+                    <li><a href="#">短裤</a></li>
+                    <li><a href="#">休闲裤</a></li>
+                    <li><a href="#">牛仔裤</a></li>
+                    <li><a href="#">免烫卡其裤</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $(".level2").hide();
+        $(".level1>a").click(function(){
+            // 给当前元素添加“current”样式
+            $(this).addClass("current")
+            // 下一个元素显示
+            .next().show()
+            // 父元素的同辈元素的子元素<a>移除“current”样式
+                .parent().siblings().children("a").removeClass("current")
+            //它们的下一个元素隐藏
+            .next().hide();
+            return false;
+        });
+    </script>
+</body>
+</html>

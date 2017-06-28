@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.2</title>
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+    <style>
+        .high{
+            font-weight: bold;
+            color:red;
+        }
+        .another{
+            font-style: italic;
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+   <input type="button" value="输出class类">
+   <input type="button" value="设置class类">
+   <input type="button" value="追加class类">
+   <input type="button" value="删除全部class类">
+   <input type="button" value="删除指定class类">
+   <input type="button" value="重复切换class类">
+    <p class="myClass" title="选择你最喜欢的水果."><strong>你最喜欢的水果是？</strong></p>
+<!--
+    <strong title="选择你最喜欢的水果.">你最喜欢的水果是？</strong>
+    <strong title="选择你最喜欢的水果.">你最喜欢的水果是？</strong>
+-->
+    <ul>
+        <li title="苹果">苹果</li>
+        <li title="橘子">橘子</li>
+        <li title="菠萝">菠萝</li>
+    </ul>
+    <script>
+        //3.2.1
+//        var $li = $("ul li:eq(1)");
+//        var li_txt = $li.text();
+////        alert(li_txt);
+//        var $para =$("p");
+//        var p_txt = $para.attr("title");
+////        alert(p_txt);
+//        
+        //3.2.2
+//        var $li_1 = $("<li title='香蕉'>香蕉</li>");     //创建第1个<li>元素
+//        var $li_2 = $("<li title='雪梨'>雪梨</li>");     //创建第2个<li>元素
+//        $("ul").append($li_1);                          //添加到<ul>节点中，使之能在网页中显示
+//        $("ul").append($li_2);                          //可以采取链式写法：
+//        $("ul").append($li_1).append($li_2);
+//        
+        //3.2.3
+//        var $li_3 = $("<li title='其他'>其他</li>");     //创建第3个<li>元素
+//        var $parent = $("ul");                          //获取<ul>节点，即<li>的父节点
+//        var $two_li = $("ul li:eq(1)");                 //获取<ul>节点中第2个<li>元素节点
+//        $parent.append($li_1).prepend($li_2);           //append()方法将创建的第1个<li>元素添加到父元素的最后面
+//                                                        //prepend()方法将创建的第2个<li>元素添加到父元素的最前面
+//        $li_3.insertAfter($two_li);                     //到获取的<li>元素之后
+//        var $one_li = $("ul li:eq(1)");                 //获取<ul>节电中第2个<li>元素节点
+//        var $two_li = $("ul li:eq(2)");                 //获取<ul>节电中第3个<li>元素节点
+//        $two_li.insertBefore($one_li);                  //移动节点
+//        
+        //3.2.4
+//        $("ul li:eq(1)").remove();                      //获取第2个<li>元素节点后，将它从网页中删除
+//        $("ul li:eq(1)").appendTo("ul");                
+//        //appendTo()方法也可以用来移动元素
+//        //移动元素时首先从文档上删除此元素，然后将该元素插入到文档中的指定节点
+//        $("ul li").remove("li[title!=菠萝]");            //将<li>元素中属性title不等于“菠萝”的<li>元素删除
+//        $("ul li").click(function(){
+//            alert($(this).html());
+//        })
+//        var $li = $("ul li:eq(1)").detach();            //删除元素
+//        $li.appendTo("ul");                             //重新追加此元素，发现它之前绑定的事件还在，如果使用remove()方法删除元素的话，那么它之前绑定的事件将失效。
+//        $("ul li:eq(1)").empty();                       //获取第2个<li>元素节点后，清空此元素里的内容，注意是元素里
+        
+        //3.2.5
+//        $("ul li").click(function(){
+//            $(this).clone(true).appendTo("ul");         //复制当前单击的节点，并将它追加到<ul>元素中
+//                                                        //clone()中增加ture后使新元素也具有复制功能    
+//        })
+        
+        //3.2.6
+//        $("p").replaceWith("<strong>你最不喜欢的水果是？</strong>");
+//        $("<strong>你最不喜欢的水果是？</strong>").replaceAll("p");
+        
+        //3.2.7
+//        $("strong").wrap("<b></b>");
+//        $("strong").wrapAll("<b></b>");
+//        $("strong").wrapInner("<b></b>");
+        
+        //3.2.8
+//        $("p").removeAttr("title");                     //删除<p>元素的属性title
+        
+        //3.2.9
+//        $("input:eq(0)").click(function(){
+//            var p_class = $("p").attr("class");          //获取<p>元素的class
+//        })
+//        $("input:eq(1)").click(function(){
+//            $("p").attr("class","high");                 //设置<p>元素的class为“high”
+//        })
+//        $("input:eq(2)").click(function(){
+//            $("p").addClass("another");                  //给<p>元素追加“another”类
+//        })
+//        $("input:eq(3)").click(function(){
+//            $("p").removeClass();                        //移除<p>元素的所有class
+//        })
+//        $("input:eq(4)").click(function(){
+//            $("p").removeClass("high");                  //移除<p>元素值为“high”的class
+//        })
+//        $("input:eq(5)").click(function(){
+//            $("p").toggleClass("another");               //重复切换类名“another”
+//        })        
+//        $("p").hasClass("another");
+        
+        //3.2.10
+//        var p_html = $("p").html();                      //获取<p>元素的HTML代码
+//        alert(p_html);                                   //打印<p>元素的HTML代码
+//        $("p").html("<strong>你最喜欢的水果是？</strong>"); //设置<p>元素的HTML代码
+//        var p_text = $("p").text();                      //获取<p>元素的文本内容
+//        alert(p_text);                                   //打印<p>元素的文本内容
+//        $("p").tetx("你最喜欢的水果是？");                  //设置<p>元素的文本内容
+        
+        //3.2.11
+//        var $body = $("body").children();
+//        var $p = $("p").children();
+//        var $ul = $("ul").children();
+//        alert($body.length);
+//        alert($p.length);
+//        alert($ul.length);
+//        for(var i=0,len=$ul.length;i<len;i++){
+//            alert($ul[i].innerHTML);
+//        }
+//        var $p1 = $("p").next();                        //取得紧邻<p>元素后的同辈元素
+//        var $ul = $("ul").prev();                       //取得紧邻<ul>元素前的同辈元素
+//        var $p2 = $("p").siblings();                    //取得<p>元素的同辈元素
+//        $(document).bind("click",function(e){
+//            $(e.target).closest("li").css("color","red");
+//        })
+        
+        //3.2.12
+//        $("p").css("color","red");                      //设置<p>元素的样式为红色
+//        $("p").css({"fontSize":"30px","backgroundColor":"#888888"});
+//        同时设置字体大小和背景颜色
+//        $("p").css("opacity","0.5");
+//        $("p").height;                                  //获取<p>元素的高度值
+//        $("p").height("100");                           //设置<p>元素的高度值为100px
+//        $("p").height("10em");                          //设置<p>元素的高度值为10em
+//        $("p").width();                                 //获取<p>元素的宽度值
+//        $("p").width("400px");                          //设置<p>元素的宽度值为400px
+        
+    </script>
+</body>
+</html>
